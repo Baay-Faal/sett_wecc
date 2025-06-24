@@ -1,0 +1,331 @@
+/* === Global Styles === */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  color: white;
+  overflow-x: hidden;
+  background-color: #000;
+}
+
+/* === Carousel Background === */
+.carousel-item img {
+  height: 100vh;
+  width: 100%;
+  object-fit: cover;
+  filter: brightness(60%);
+}
+
+/* === Overlay === */
+.overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 2;
+}
+
+/* === Header Content === */
+.header-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  text-align: center;
+}
+
+.header-content h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.header-content p {
+  font-size: 1.25rem;
+  margin-bottom: 25px;
+}
+
+.cta-button, .btn-success {
+  background-color: #2ecc71;
+  color: white;
+  padding: 14px 30px;
+  text-decoration: none;
+  font-size: 18px;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
+  border: none;
+}
+
+.cta-button:hover, .btn-success:hover {
+  background-color: #27ae60;
+}
+
+/* === Navbar === */
+.navbar {
+  z-index: 20;
+}
+
+.navbar .nav-link i {
+  margin-right: 6px;
+}
+
+/* === Services Page === */
+.container {
+  max-width: 900px;
+  margin: 100px auto;
+  background-color: #fff;
+  padding: 30px 40px;
+  border-radius: 8px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.1);
+  color: #000;
+}
+
+.container h1 {
+  color: #004d99;
+  margin-bottom: 20px;
+}
+
+.service-group label,
+.service-type p,
+.service-type label {
+  display: block;
+  margin: 12px 0 6px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+input[type="checkbox"] {
+  margin-right: 8px;
+  cursor: pointer;
+}
+
+input[type="number"] {
+  margin-left: 10px;
+  width: 80px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  display: none;
+}
+
+button[type="submit"] {
+  background-color: #004d99;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 25px;
+  transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+  background-color: #003366;
+}
+
+hr {
+  margin: 25px 0;
+  border: none;
+  border-top: 1px solid #ddd;
+}
+
+/* === Footer === */
+footer {
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 20px;
+  margin-top: 60px;
+  font-size: 14px;
+  text-align: center;
+  color: #ccc;
+}
+
+/* === Responsive === */
+@media (max-width: 768px) {
+  .header-content h1 {
+    font-size: 2rem;
+  }
+  .header-content p {
+    font-size: 1rem;
+  }
+  .cta-button {
+    font-size: 16px;
+    padding: 12px 20px;
+  }
+  .container {
+    padding: 20px;
+  }
+}
+/* === Blog Page === */
+.hero {
+  background: url('/static/images/laverie.jpg') center center/cover no-repeat;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.hero h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+
+.blog .card {
+  background-color: #1a1a1a;
+  color: white;
+  border: 1px solid #333;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.blog .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(255, 255, 255, 0.05);
+}
+
+.blog .card-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: 12px;
+}
+
+.blog .card-text {
+  font-size: 1rem;
+  color: #ccc;
+}
+
+.blog .btn-outline-primary {
+  color: #2ecc71;
+  border-color: #2ecc71;
+}
+
+.blog .btn-outline-primary:hover {
+  background-color: #2ecc71;
+  color: #000;
+  border-color: #2ecc71;
+}
+
+/* Ajustement container blog */
+.blog .container {
+  max-width: 1200px;
+  margin-top: 50px;
+  margin-bottom: 60px;
+}
+
+/* Footer spécifique */
+footer {
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #ccc;
+}
+/* Style pour les modales */
+.modal-content {
+  background-color: rgba(0, 0, 0, 0.85) !important;
+  color: white !important;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.modal-header,
+.modal-footer {
+  border: none;
+}
+
+.modal-title {
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+.btn-close {
+  filter: invert(1); /* Bouton de fermeture blanc */
+  opacity: 1;
+}
+
+.btn-secondary {
+  background-color: #444;
+  border: none;
+}
+
+.btn-secondary:hover {
+  background-color: #666;
+  color: white;
+}
+
+/* === Styles spécifiques pour la page dashboard === */
+.dashboard-page {
+  background-color: #000;
+  color: white;
+  font-family: 'Segoe UI', sans-serif;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* Navbar fixée */
+.dashboard-page .navbar {
+  z-index: 20;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+/* Carousel (carrousel) */
+.dashboard-page .carousel-item img {
+  width: 100%;
+  height: 60vh;
+  object-fit: cover;
+  filter: brightness(60%);
+}
+
+/* Container principal */
+.dashboard-page .container {
+  max-width: 900px;
+  margin-top: 30px;
+  margin-bottom: 50px;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 30px 40px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+  color: white;
+}
+
+/* Cartes résumé et panier */
+.dashboard-page .card {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+/* Table panier */
+.dashboard-page .table {
+  color: white;
+}
+
+.dashboard-page .table th,
+.dashboard-page .table td {
+  vertical-align: middle;
+}
+
+/* Titres */
+.dashboard-page h2 {
+  margin-bottom: 20px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .dashboard-page .container {
+    margin: 15px 20px 40px;
+    padding: 20px;
+  }
+
+  .dashboard-page .navbar {
+    position: static;
+  }
+
+  .dashboard-page .carousel-item img {
+    height: 40vh;
+  }
+}

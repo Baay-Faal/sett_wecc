@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Blog - SETT WECC</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <!-- CSS personnalisé -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+  <style>
+    /* Fond flouté sur toute la page */
+    .blog::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: url('/static/images/laverie7.jpg') no-repeat center center/cover;
+      filter: blur(8px);
+      z-index: -1;
+      opacity: 0.7;
+    }
+  </style>
+</head>
+<body class="blog">
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg px-4">
+    <a class="navbar-brand text-white" href="{{ url_for('accueil') }}">
+      <i class="fas fa-soap me-2"></i>SETT WECC
+    </a>
+    <div class="ms-auto">
+      <a href="{{ url_for('services') }}" class="nav-link d-inline text-white">Services</a>
+      <a href="{{ url_for('connexion') }}" class="btn btn-success ms-3">
+        <i class="fas fa-sign-in-alt"></i> Se connecter
+      </a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero text-center text-white py-5">
+    <h1>Nos Conseils & Formules</h1>
+  </section>
+
+  <!-- Articles -->
+  <div class="container py-5">
+    <div class="row g-4">
+
+      <!-- Formule Simple -->
+      <div class="col-md-4">
+        <div class="card shadow-sm h-100">
+          <img src="/static/images/laverie6.jpg" class="card-img-top" alt="Formule simple">
+          <div class="card-body">
+            <h5 class="card-title">Formule Simple – 72h</h5>
+            <p class="card-text">Notre formule économique vous garantit un linge propre en 72 heures. Idéale pour les lavages standards sans urgence.</p>
+            <button class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#modalSimple">
+              Lire l’article
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Formule Semi-Premium -->
+      <div class="col-md-4">
+        <div class="card shadow-sm h-100">
+          <img src="/static/images/laverie4.jpg" class="card-img-top" alt="Formule semi-premium">
+          <div class="card-body">
+            <h5 class="card-title">Formule Semi-Premium – 48h</h5>
+            <p class="card-text">Un service rapide et soigné avec retour sous 48h. Parfait pour ceux qui ont des besoins urgents sans compromis sur la qualité.</p>
+            <button class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#modalSemi">
+              Lire l’article
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Formule Premium -->
+      <div class="col-md-4">
+        <div class="card shadow-sm h-100">
+          <img src="/static/images/laverie.jpg" class="card-img-top" alt="Formule premium">
+          <div class="card-body">
+            <h5 class="card-title">Formule Premium – Express 24h</h5>
+            <p class="card-text">Besoin de vos vêtements le jour même ? Optez pour notre service express en 24 heures. Livraison possible à domicile.</p>
+            <button class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#modalPremium">
+              Lire l’article
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quelle formule choisir ? -->
+      <div class="col-md-6">
+        <div class="card shadow-sm h-100">
+          <img src="/static/images/laverie2.jpg" class="card-img-top" alt="Choisir formule">
+          <div class="card-body">
+            <h5 class="card-title">Quelle formule est faite pour vous ?</h5>
+            <p class="card-text">Découvrez comment choisir la bonne formule en fonction de vos besoins, de votre budget et du temps à disposition.</p>
+            <button class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#modalConseils">
+              Lire l’article
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5 astuces entretien -->
+      <div class="col-md-6">
+        <div class="card shadow-sm h-100">
+          <img src="/static/images/laverie3.jpg" class="card-img-top" alt="Astuces linge">
+          <div class="card-body">
+            <h5 class="card-title">5 astuces pour entretenir vos vêtements</h5>
+            <p class="card-text">Entretenir ses vêtements prolonge leur durée de vie. Voici nos conseils simples pour éviter les erreurs classiques.</p>
+            <button class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#modalAstuces">
+              Lire l’article
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pourquoi choisir SETT WECC -->
+      <div class="col-md-6">
+        <div class="card shadow-sm h-100">
+          <img src="/static/images/laverie7.jpg" class="card-img-top" alt="Pourquoi choisir SETT WECC">
+          <div class="card-body">
+            <h5 class="card-title">Pourquoi doit-on choisir SETT WECC ?</h5>
+            <p class="card-text">
+              Découvrez ce qui fait la différence de notre laverie et pourquoi nos clients nous font confiance.
+            </p>
+            <button class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#modalPourquoi">
+              Lire l’article
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Modales -->
+
+  <!-- Modal Formule Simple -->
+  <div class="modal fade" id="modalSimple" tabindex="-1" aria-labelledby="modalSimpleLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable">
+      <div class="modal-content bg-dark text-white">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalSimpleLabel">Formule Simple – 72h</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Fermer"></button>
+        </div>
+        <div class="modal-body">
+          <p>
+            La <strong>Formule Simple</strong> est idéale si vous avez un délai confortable de 72 heures pour récupérer votre linge.
+            Elle convient parfaitement aux vêtements du quotidien qui ne nécessitent pas de traitement spécial.
+          </p>
+          <ul>
+            <li>Nettoyage classique et pliage soigné</li>
+            <li>Prix économique, accessible à tous</li>
+            <li>Délais de traitement standard (72h)</li>
+          </ul>
+          <p>
+            Cette formule vous permet de bénéficier d’un service de qualité tout en maîtrisant votre budget.
+          </p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Formule Semi-Premium -->
+  <div class="modal fade" id="modalSemi" tabindex="-1" aria-labelledby="modalSemiLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable">
+      <div class="modal-content bg-dark text-white">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalSemiLabel">Formule Semi-Premium – 48h</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Fermer"></button>
+        </div>
+        <div class="modal-body">
+          <p>
+            La <strong>Formule Semi-Premium</strong> est conçue pour ceux qui ont besoin d’un service plus rapide, avec un rendu en 48 heures.
+            C’est un excellent compromis entre rapidité et soin apporté aux vêtements.
+          </p>
+          <ul>
+            <li>Traitement délicat pour vêtements sensibles</li>
+            <li>Priorité sur votre commande</li>
+            <li>Retour rapide sous 48h</li>
+          </ul>
+          <p>
+            Cette formule est parfaite pour les professionnels ou les familles ayant un planning serré, sans vouloir sacrifier la qualité.
+          </p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Formule Premium -->
+  <div class="modal fade" id="modalPremium" tabindex="-1" aria-labelledby="modalPremiumLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable">
+      <div class="modal-content bg-dark text-white">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalPremiumLabel">Formule Premium – Express 24h</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Fermer"></button>
+        </div>
+        <div class="modal-body">
+          <p>
+            La <strong>Formule Premium</strong> est notre service express ultime, avec un délai de seulement 24 heures.
+            Elle est parfaite pour les urgences et occasions spéciales.
+          </p>
+          <ul>
+            <li>Nettoyage et repassage haute qualité</li>
+            <li>Option livraison express à domicile</li>
+            <li>Traitement prioritaire garanti</li>
+          </ul>
+          <p>
+            Grâce à cette formule, vous pouvez récupérer vos vêtements propres et prêts à porter en un temps record.
+          </p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Quelle formule choisir ? -->
+  <div class="modal fade" id="modalConseils" tabindex="-1" aria-labelledby="modalConseilsLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable">
+      <div class="modal-content bg-dark text-white">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalConseilsLabel">Quelle formule est faite pour vous ?</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Fermer"></button>
+        </div>
+        <div class="modal-body">
+          <p>
+            Choisir la bonne formule dépend de plusieurs facteurs clés :
+          </p>
+          <ul>
+            <li><strong>Urgence :</strong> Avez-vous besoin de vos vêtements rapidement ?</li>
+            <li><strong>Type de linge :</strong> S’agit-il de vêtements délicats ou résistants ?</li>
+            <li><strong>Budget :</strong> Quel est votre seuil de dépense ?</li>
+          </ul>
+          <p>
+            <strong>Formule Simple</strong> : idéale pour les besoins non urgents et les budgets limités.<br/>
+            <strong>Formule Semi-Premium</strong> : équilibre entre rapidité et soin.<br/>
+            <strong>Formule Premium</strong> : rapidité maximale et qualité premium.
+          </p>
+          <p>
+            N’hésitez pas à nous contacter pour un conseil personnalisé.
+          </p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 5 astuces entretien -->
+  <div class="modal fade" id="modalAstuces" tabindex="-1" aria-labelledby="modalAstucesLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable">
+      <div class="modal-content bg-dark text-white">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalAstucesLabel">5 astuces pour entretenir vos vêtements</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Fermer"></button>
+        </div>
+        <div class="modal-body">
+          <p>Voici nos 5 astuces clés pour prolonger la vie de vos vêtements :</p>
+          <ol>
+            <li><strong>Lavez à la bonne température :</strong> Respectez les consignes sur l’étiquette pour éviter le rétrécissement ou la décoloration.</li>
+            <li><strong>Séparez les couleurs :</strong> Evitez de mélanger les blancs et les couleurs pour prévenir les transferts.</li>
+            <li><strong>Utilisez la bonne dose de lessive :</strong> Le surdosage abîme les fibres et pollue l’environnement.</li>
+            <li><strong>Ne surchargez pas la machine :</strong> Les vêtements doivent pouvoir bouger librement pour un lavage efficace.</li>
+            <li><strong>Privilégiez le séchage à l’air libre :</strong> Le sèche-linge use prématurément les fibres, préférez un étendoir quand possible.</li>
+          </ol>
+          <p>
+            Appliquer ces conseils simples vous permettra de garder vos habits beaux plus longtemps.
+          </p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Pourquoi choisir SETT WECC -->
+  <div class="modal fade" id="modalPourquoi" tabindex="-1" aria-labelledby="modalPourquoiLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable">
+      <div class="modal-content bg-dark text-white">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalPourquoiLabel">Pourquoi doit-on choisir SETT WECC ?</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Fermer"></button>
+        </div>
+        <div class="modal-body">
+          <p>
+            Chez <strong>SETT WECC</strong>, nous plaçons la qualité et la satisfaction client au cœur de notre métier.
+            Voici pourquoi nous sommes le choix numéro 1 pour votre linge :
+          </p>
+          <ul>
+            <li><strong>Expertise locale :</strong> Nous connaissons parfaitement les besoins spécifiques de notre clientèle.</li>
+            <li><strong>Qualité irréprochable :</strong> Des procédés modernes et un contrôle rigoureux assurent un nettoyage optimal.</li>
+            <li><strong>Respect des délais :</strong> Que ce soit 48h, 24h ou 6h, votre linge est prêt à temps.</li>
+            <li><strong>Prix compétitifs :</strong> Des formules adaptées à tous les budgets sans compromis sur la qualité.</li>
+            <li><strong>Service client dédié :</strong> Une équipe à votre écoute pour répondre à toutes vos questions.</li>
+          </ul>
+          <p>
+            Faites confiance à SETT WECC pour un linge impeccable, livré avec soin et ponctualité.
+          </p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS (nécessaire pour modales) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

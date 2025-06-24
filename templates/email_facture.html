@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Facture - SETT WECC</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            color: #333;
+            background-color: #f9f9f9;
+            padding: 20px;
+        }
+        .container {
+            max-width: 700px;
+            margin: auto;
+            background: white;
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        h1 {
+            color: #4CAF50;
+            text-align: center;
+        }
+        .info, .footer {
+            margin-top: 20px;
+            font-size: 14px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .total {
+            font-weight: bold;
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🧺 Facture de votre commande</h1>
+
+        <p><strong>Client :</strong> {{ utilisateur.username }}</p>
+        <p><strong>Email :</strong> {{ utilisateur.email }}</p>
+        <p><strong>Adresse :</strong> {{ commande.adresse }}</p>
+        <p><strong>Téléphone :</strong> {{ commande.telephone }}</p>
+        <p><strong>Forfait :</strong> {{ commande.forfait|capitalize }}</p>
+        <p><strong>Moyen de paiement :</strong> {{ moyen_paiement|capitalize }}</p>
+        <p><strong>Date commande :</strong> {{ commande.date_commande.strftime('%d/%m/%Y à %Hh%M') }}</p>
+        <p><strong>Date de retrait :</strong> {{ commande.date_retrait.strftime('%d/%m/%Y') }}</p>
+        <p><strong>Date de livraison :</strong> {{ commande.date_livraison.strftime('%d/%m/%Y') }}</p>
+
+        <h3>Détails des articles</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Article</th>
+                    <th>Quantité</th>
+                    <th>Prix unitaire</th>
+                    <th>Remise</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for article in articles %}
+                <tr>
+                    <td>{{ article.nom_article }}</td>
+                    <td>{{ article.quantite }}</td>
+                    <td>{{ article.prix_unitaire | int | string }} XOF</td>
+                    <td>{{ article.remise | int | string }} XOF</td>
+                    <td>{{ article.total_article | int | string }} XOF</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <p class="total">Total payé : <strong>{{ commande.prix_total | int | string }} XOF</strong></p>
+
+        {% if commande.commentaires %}
+        <p><strong>Commentaire du client :</strong> {{ commande.commentaires }}</p>
+        {% endif %}
+
+        <div class="footer">
+            <p>Merci pour votre confiance 💚</p>
+            <p>L'équipe de <strong>SETT WECC</strong></p>
+            <p>📞 +221 77 548 27 25</p>
+        </div>
+    </div>
+</body>
+</html>

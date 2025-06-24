@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SETT WECC - Connexion</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Font Awesome -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  />
+  <style>
+    body {
+      background: linear-gradient(135deg, #8fd3f4 0%, #84fab0 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.85);
+      border-radius: 15px;
+      padding: 2rem;
+      max-width: 400px;
+      width: 100%;
+      box-shadow: 0 8px 32px rgba(0, 77, 102, 0.25);
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+      color: #003d66;
+      font-weight: 700;
+      letter-spacing: 2px;
+    }
+
+    .form-control:focus {
+      box-shadow: 0 0 8px #3ab0ff;
+      border-color: #3ab0ff;
+    }
+
+    .btn-primary {
+      background-color: #3ab0ff;
+      border-color: #3ab0ff;
+      font-weight: 600;
+    }
+
+    .btn-primary:hover {
+      background-color: #1c7ed6;
+      border-color: #1c7ed6;
+    }
+
+    .link-text {
+      color: #3ab0ff;
+      cursor: pointer;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .link-text:hover {
+      color: #1c7ed6;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card shadow">
+    <h1><i class="fas fa-soap me-2"></i>Connexion</h1>
+    <form action="" method="POST">
+      <div class="mb-3 position-relative">
+        <label for="username" class="form-label">Nom d'utilisateur</label>
+        <div class="input-group">
+          <span class="input-group-text"><i class="fas fa-user"></i></span>
+          <input type="text" id="username" name="username" class="form-control" placeholder="Nom d'utilisateur" required />
+        </div>
+      </div>
+
+      <div class="mb-3 position-relative">
+        <label for="password" class="form-label">Mot de passe</label>
+        <div class="input-group">
+          <span class="input-group-text"><i class="fas fa-lock"></i></span>
+          <input type="password" id="password" name="password" class="form-control" placeholder="Mot de passe" required />
+        </div>
+      </div>
+
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <div class="form-check">
+          <input type="checkbox" class="form-check-input" id="remember" name="remember" />
+          <label class="form-check-label" for="remember">Se souvenir de moi</label>
+        </div>
+        <a href="#" class="link-text">Mot de passe oublié ?</a>
+      </div>
+
+      <button type="submit" class="btn btn-primary w-100 mb-3">
+        <i class="fas fa-sign-in-alt me-2"></i> Se connecter
+      </button>
+
+      <div class="text-center">
+        <p>Pas encore de compte ?
+          <a href="{{ url_for('inscription') }}" class="link-text">S'inscrire</a>
+        </p>
+      </div>
+    </form>
+  </div>
+
+  <!-- Bootstrap JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
